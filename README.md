@@ -1,5 +1,13 @@
 # Purchase bill UoM valuation correction (Odoo 19)
 
+The installed addon has one runtime change: normalize posted bill quantities to
+the stock move's UoM before Odoo calculates the purchase receipt's unbilled
+quantity. It does not change bill amounts, purchase prices, stock quantities,
+or historical values. The optional historical repair is a separate, explicitly
+invoked ORM script; installation never runs it. Follow
+[`HISTORICAL_REPAIR_GUIDE.md`](HISTORICAL_REPAIR_GUIDE.md) only when repairing
+stored historical valuations.
+
 This standalone addon depends only on native `purchase_stock`. It neither imports
 nor depends on `tha_stock_costing`; that addon is left untouched. There are no
 warehouse overrides, UI changes, installation hooks, or automatic data repairs.
